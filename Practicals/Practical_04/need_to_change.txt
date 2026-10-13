@@ -1,0 +1,37 @@
+================================================================================
+PRACTICAL 04 - CONFIGURATION VALUES NEEDED FOR USER SETUP
+================================================================================
+
+1. MySQL Root Password
+   File: src/main/webapp/Request.jsp
+   Line: String dbPass = "root";
+   Change: Replace "root" with your local MySQL password. If your MySQL has no password, change to "".
+
+   File: src/main/webapp/insert_user.jsp
+   Line: String dbPass = "root";
+   Change: Replace "root" with your local MySQL password.
+
+2. MySQL Port and Database Name
+   File: src/main/webapp/Request.jsp & src/main/webapp/insert_user.jsp
+   Line: String url = "jdbc:mysql://localhost:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+   Change:
+   - If your MySQL uses a port other than 3306 (e.g. 3307), update 3306.
+   - If your database name is different, change "demo_db".
+
+3. MySQL User
+   File: src/main/webapp/Request.jsp & src/main/webapp/insert_user.jsp
+   Line: String dbUser = "root";
+   Change: Update if your MySQL user name is not "root".
+
+4. Test Login Credentials
+   Database Table: demo_db.users
+   Pre-loaded Logins:
+   - Username: admin       | Password: 1234
+   - Username: john_doe    | Password: secret123
+   - Username: anitha      | Password: 123456
+   Change: You can add new user credentials either by running schema.sql or through insert_user.jsp.
+
+5. Database Initialization
+   File: schema.sql
+   Action: Run this file once in MySQL Workbench or MySQL CLI before testing the login page.
+================================================================================

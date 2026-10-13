@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSP JDBC Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1565c0, #42a5f5, #90caf9);
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        .container {
+            width: 380px;
+            padding: 40px 35px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background: white;
+            box-shadow: 0 0 12px rgba(33, 150, 243, 0.6);
+        }
+        input[type=submit] {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #0d47a1;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type=submit]:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .extra-links {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            max-width: 450px;
+        }
+        .extra-links a {
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>User Login</h2>
+    <form action="Request.jsp" method="post">
+        <label>Username</label>
+        <input type="text" name="user" placeholder="Enter Username (e.g. admin)" required>
+        <label>Password</label>
+        <input type="password" name="pass" placeholder="Enter Password (e.g. 1234)" required>
+        <input type="submit" value="Login">
+    </form>
+    <div class="footer">
+        JSP • JDBC • MySQL Login System
+    </div>
+</div>
+
+<div class="extra-links">
+    <p><b>Practical 4 Additional Programs:</b></p>
+    <p style="margin-top: 8px;">
+        <a href="practical_4_1_arithmetic.jsp">4.1 Arithmetic JSP</a> |
+        <a href="forward_demo.jsp">jsp:forward Tag</a> |
+        <a href="implicit_objects.jsp">Implicit Objects</a> |
+        <a href="insert_user.jsp">Insert New User</a>
+    </p>
+</div>
+</body>
+</html>

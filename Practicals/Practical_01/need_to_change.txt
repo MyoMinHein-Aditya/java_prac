@@ -1,0 +1,25 @@
+================================================================================
+PRACTICAL 01 - CONFIGURATION VALUES NEEDED FOR USER SETUP
+================================================================================
+
+1. MySQL Root Password
+   File: src/main/java/App.java
+   Line: String password = "root";
+   Change: Replace "root" with your local MySQL password. If your MySQL has no password, change it to "".
+
+2. MySQL Port and Database Name
+   File: src/main/java/App.java
+   Line: String url = "jdbc:mysql://localhost:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+   Change: 
+   - If your MySQL runs on a different port (e.g. 3307), change 3306 to your port.
+   - If your database name is different, change "mydb" to your database name.
+
+3. MySQL User
+   File: src/main/java/App.java
+   Line: String username = "root";
+   Change: Change "root" if your MySQL database user is different.
+
+4. Database Initialization
+   File: schema.sql
+   Action: Run this file once in MySQL Workbench or MySQL CLI before executing App.java.
+================================================================================

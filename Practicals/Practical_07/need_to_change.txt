@@ -1,0 +1,30 @@
+================================================================================
+PRACTICAL 07 - CONFIGURATION VALUES NEEDED FOR USER SETUP
+================================================================================
+
+1. MySQL Root Password
+   File: src/main/resources/application.properties
+   Line: spring.datasource.password=root
+   Change: Replace "root" with your local MySQL password. If your MySQL has no password, change to spring.datasource.password=
+
+2. Server Port
+   File: src/main/resources/application.properties
+   Line: server.port=8083
+   Change: If port 8083 is already in use by another service on your PC, change to another port like 8085 or 8086.
+
+3. MySQL Port and Database Name
+   File: src/main/resources/application.properties
+   Line: spring.datasource.url=jdbc:mysql://localhost:3306/springweb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+   Change:
+   - Change 3306 if your MySQL uses another port (e.g. 3307).
+   - Change "springweb" if you want to use a different database name.
+
+4. MySQL User
+   File: src/main/resources/application.properties
+   Line: spring.datasource.username=root
+   Change: Change "root" if your MySQL username is different.
+
+5. Database Initialization
+   File: schema.sql
+   Action: Run "CREATE DATABASE IF NOT EXISTS springweb;" in MySQL Workbench or MySQL CLI before launching the Spring Boot web application.
+================================================================================

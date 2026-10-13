@@ -1,0 +1,25 @@
+================================================================================
+PRACTICAL 05 - CONFIGURATION VALUES NEEDED FOR USER SETUP
+================================================================================
+
+1. MySQL Root Password
+   File: src/main/resources/hibernate.cfg.xml
+   Line: <property name="connection.password">root</property>
+   Change: Replace "root" with your local MySQL password. If your MySQL has no password, change to <property name="connection.password"></property>.
+
+2. MySQL Database Port and Name
+   File: src/main/resources/hibernate.cfg.xml
+   Line: <property name="connection.url">jdbc:mysql://localhost:3306/TestHibernate?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</property>
+   Change:
+   - Change 3306 if your MySQL runs on another port (e.g. 3307).
+   - Change "TestHibernate" if your database name is different.
+
+3. MySQL User
+   File: src/main/resources/hibernate.cfg.xml
+   Line: <property name="connection.username">root</property>
+   Change: Change "root" if your database username is different.
+
+4. Database Initialization
+   File: schema.sql
+   Action: Run "CREATE DATABASE IF NOT EXISTS TestHibernate;" in MySQL Workbench or MySQL CLI before executing App.java.
+================================================================================

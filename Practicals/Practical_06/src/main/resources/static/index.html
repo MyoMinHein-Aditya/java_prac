@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring CRUD REST Client Test Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 30px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; margin-right: 5px; }
+        .btn-green { background: #28a745; }
+        .btn-blue { background: #007bff; }
+        .btn-orange { background: #fd7e14; }
+        .btn-red { background: #dc3545; }
+        input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin: 5px 0; width: calc(50% - 12px); }
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 6px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #007bff; color: white; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Spring Boot CRUD REST Dashboard</h1>
+    <p>Student: <b>Myo Min Hein</b> | Server Port: <b>8082</b></p>
+    <hr>
+
+    <h2>1. Create / Save Employee (POST /employee/save)</h2>
+    <input type="text" id="postName" placeholder="Name (e.g. Vaibhavi)">
+    <input type="text" id="postCity" placeholder="City (e.g. Gujarat)"><br>
+    <button class="btn btn-green" onclick="saveEmployee()">POST Save</button>
+
+    <h2>2. Update Employee (PUT /employee/update/{id})</h2>
+    <input type="number" id="putId" placeholder="Employee ID to update" style="width: 25%;">
+    <input type="text" id="putName" placeholder="New Name">
+    <input type="text" id="putCity" placeholder="New City"><br>
+    <button class="btn btn-orange" onclick="updateEmployee()">PUT Update</button>
+
+    <h2>3. Delete Employee (DELETE /employee/delete/{id})</h2>
+    <input type="number" id="delId" placeholder="Employee ID to delete" style="width: 30%;">
+    <button class="btn btn-red" onclick="deleteEmployee()">DELETE Employee</button>
+
+    <h2>4. View All Employees (GET /employee/all)</h2>
+    <button class="btn btn-blue" onclick="loadEmployees()">Fetch / Refresh All</button>
+
+    <div id="tableContainer"></div>
+
+    <h3 style="margin-top: 25px;">Server Response (JSON):</h3>
+    <pre id="jsonOutput">Click any button above to see response...</pre>
+</div>
+
+<script>
+    async function loadEmployees() {
+        const res = await fetch('/employee/all');
+        const data = await res.json();
+        document.getElementById('jsonOutput').innerText = JSON.stringify(data, null, 2);
+
+        let table = '<table><tr><th>ID</th><th>Name</th><th>City</th><th>Actions</th></tr>';
+        data.forEach(e => {
+            table += `<tr>
+                <td>${e.id}</td>
+                <td>${e.name}</td>
+                <td>${e.city}</td>
+                <td>
+                    <button class="btn btn-orange" style="padding:4px 8px;font-size:12px;" onclick="prefillUpdate(${e.id}, '${e.name}', '${e.city}')">Edit</button>
+                    <button class="btn btn-red" style="padding:4px 8px;font-size:12px;" onclick="quickDelete(${e.id})">Delete</button>
+                </td>
+            </tr>`;
+        });
+        table += '</table>';
+        document.getElementById('tableContainer').innerHTML = table;
+    }
+
+    async function saveEmployee() {
+        const name = document.getElementById('postName').value;
+        const city = document.getElementById('postCity').value;
+        const res = await fetch('/employee/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, city })
+        });
+        const data = await res.json();
+        document.getElementById('jsonOutput').innerText = JSON.stringify(data, null, 2);
+        loadEmployees();
+    }
+
+    async function updateEmployee() {
+        const id = document.getElementById('putId').value;
+        const name = document.getElementById('putName').value;
+        const city = document.getElementById('putCity').value;
+        const res = await fetch('/employee/update/' + id, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, city })
+        });
+        const data = await res.json();
+        document.getElementById('jsonOutput').innerText = JSON.stringify(data, null, 2);
+        loadEmployees();
+    }
+
+    async function deleteEmployee() {
+        const id = document.getElementById('delId').value;
+        const res = await fetch('/employee/delete/' + id, { method: 'DELETE' });
+        const text = await res.text();
+        document.getElementById('jsonOutput').innerText = text;
+        loadEmployees();
+    }
+
+    function prefillUpdate(id, name, city) {
+        document.getElementById('putId').value = id;
+        document.getElementById('putName').value = name;
+        document.getElementById('putCity').value = city;
+    }
+
+    function quickDelete(id) {
+        document.getElementById('delId').value = id;
+        deleteEmployee();
+    }
+
+    window.onload = loadEmployees;
+</script>
+</body>
+</html>

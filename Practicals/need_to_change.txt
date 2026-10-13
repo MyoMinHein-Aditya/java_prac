@@ -1,0 +1,93 @@
+================================================================================
+MASTER CONFIGURATION GUIDE: VALUES YOU NEED TO CHANGE FOR YOUR SYSTEM
+Student: Myo Min Hein @ Aditya
+Subject: Enterprise Programming Using Java (303105310)
+================================================================================
+
+This document lists every file and setting you might need to adjust on your
+computer (such as MySQL passwords, ports, and credentials).
+
+--------------------------------------------------------------------------------
+1. PRACTICAL 01 (JDBC Insertion & Retrieval)
+--------------------------------------------------------------------------------
+File to change: Practical_01/src/main/java/App.java
+- Line: String password = "root";
+  Action: Change "root" to your local MySQL password. If you have no password, use "".
+- Line: String url = "jdbc:mysql://localhost:3306/mydb?...";
+  Action: If your MySQL is on another port, change 3306.
+- Database: Run Practical_01/schema.sql in MySQL Workbench to create `mydb`.
+
+--------------------------------------------------------------------------------
+2. PRACTICAL 02 (PreparedStatement & ResultSet)
+--------------------------------------------------------------------------------
+File to change: Practical_02/src/main/java/App.java
+- Line: String password = "root";
+  Action: Change "root" to your local MySQL password.
+- Line: String url = "jdbc:mysql://localhost:3306/mydb?...";
+  Action: Update port 3306 if different.
+- Database: Run Practical_02/schema.sql in MySQL Workbench to create `mydb`.
+
+--------------------------------------------------------------------------------
+3. PRACTICAL 03 (Servlets, Request Details, Sessions, Cookies & Socket Chat)
+--------------------------------------------------------------------------------
+Files to change:
+- Practical_03/src/main/java/com/simple/MainServlet.java
+  Line: if ("admin".equals(user) && "1234".equals(pass))
+  Action: Default login is username "admin" and password "1234". Change if desired.
+- Practical_03/src/main/java/com/chat/ChatServer.java & ChatClient.java
+  Line: PORT = 5000;
+  Action: Change if port 5000 is occupied or blocked by firewall.
+- Practical_03/src/main/java/com/chat/ChatClient.java
+  Line: SERVER_HOST = "localhost";
+  Action: Change to server IP address if running across two separate PCs.
+
+--------------------------------------------------------------------------------
+4. PRACTICAL 04 (JSP Programming, Scriptlets & JDBC Authentication)
+--------------------------------------------------------------------------------
+Files to change:
+- Practical_04/src/main/webapp/Request.jsp
+  Line: String dbPass = "root";
+  Action: Change "root" to your local MySQL password.
+- Practical_04/src/main/webapp/insert_user.jsp
+  Line: String dbPass = "root";
+  Action: Change "root" to your local MySQL password.
+- Database: Run Practical_04/schema.sql in MySQL Workbench to create `demo_db`.
+  Default sample users in database:
+  * admin / 1234
+  * john_doe / secret123
+  * anitha / 123456
+
+--------------------------------------------------------------------------------
+5. PRACTICAL 05 (Hibernate ORM CRUD)
+--------------------------------------------------------------------------------
+File to change: Practical_05/src/main/resources/hibernate.cfg.xml
+- Property: <property name="connection.password">root</property>
+  Action: Change "root" to your local MySQL password.
+- Property: <property name="connection.url">jdbc:mysql://localhost:3306/TestHibernate?...</property>
+  Action: Update port 3306 if different.
+- Database: Run Practical_05/schema.sql in MySQL Workbench to create `TestHibernate`.
+
+--------------------------------------------------------------------------------
+6. PRACTICAL 06 (Spring Boot REST CRUD - Port 8082)
+--------------------------------------------------------------------------------
+File to change: Practical_06/src/main/resources/application.properties
+- Property: spring.datasource.password=root
+  Action: Change "root" to your local MySQL password.
+- Property: server.port=8082
+  Action: Change 8082 to another port if 8082 is already in use.
+- Property: spring.datasource.url=jdbc:mysql://localhost:3306/springcrud?...
+  Action: Update port 3306 if different.
+- Database: Run Practical_06/schema.sql in MySQL Workbench to create `springcrud`.
+
+--------------------------------------------------------------------------------
+7. PRACTICAL 07 (Spring Boot Web App with Thymeleaf - Port 8083)
+--------------------------------------------------------------------------------
+File to change: Practical_07/src/main/resources/application.properties
+- Property: spring.datasource.password=root
+  Action: Change "root" to your local MySQL password.
+- Property: server.port=8083
+  Action: Change 8083 to another port if 8083 is already in use.
+- Property: spring.datasource.url=jdbc:mysql://localhost:3306/springweb?...
+  Action: Update port 3306 if different.
+- Database: Run Practical_07/schema.sql in MySQL Workbench to create `springweb`.
+================================================================================

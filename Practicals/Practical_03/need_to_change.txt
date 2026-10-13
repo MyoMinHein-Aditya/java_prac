@@ -1,0 +1,26 @@
+================================================================================
+PRACTICAL 03 - CONFIGURATION VALUES NEEDED FOR USER SETUP
+================================================================================
+
+1. Authentication Credentials
+   File: src/main/java/com/simple/MainServlet.java
+   Line: if ("admin".equals(user) && "1234".equals(pass))
+   Change: If you want to use your own login username and password instead of default "admin" and "1234", change them here.
+
+2. Socket Chat Port
+   File: src/main/java/com/chat/ChatServer.java
+   Line: private static final int PORT = 5000;
+   File: src/main/java/com/chat/ChatClient.java
+   Line: private static final int SERVER_PORT = 5000;
+   Change: If port 5000 is blocked or used by another application, change 5000 to another port (e.g. 5005) in both files.
+
+3. Socket Chat Server Host
+   File: src/main/java/com/chat/ChatClient.java
+   Line: private static final String SERVER_HOST = "localhost";
+   Change: Keep "localhost" if running on the same machine. If connecting across two computers on the same Wi-Fi, change "localhost" to the server machine's IP address.
+
+4. Apache Tomcat Port
+   Environment: Eclipse Server Runtime
+   Default: 8080
+   Change: If port 8080 is used by another service, change Tomcat port in Eclipse under Server Overview configuration.
+================================================================================
