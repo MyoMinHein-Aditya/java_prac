@@ -11,15 +11,15 @@
 
 ## 1. Master Implementation Summary Table
 
-| Practical | Title / Topic | Project Folder | Technologies & Tools | Completion Status | Testing Status | Primary Run Command / Entry Point |
+| Practical | Title / Topic | Project Folder | Technologies & Tools | Completion Status | Testing Status | Single Terminal Command (`cd <dir>`) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Practical 01** | JDBC Connection, Insertion & Retrieval | `Practical_01` | Java 17, JDBC, MySQL, Maven | Completed | Verified Code & Schema | `App.java` (Run As Java Application) |
-| **Practical 02** | PreparedStatement & ResultSet Interfaces | `Practical_02` | Java 17, JDBC, MySQL, Maven | Completed | Verified Code & Schema | `App.java` (Run As Java Application) |
-| **Practical 03** | Servlet Programming, Request Details, Auth, Sessions, Cookies & Socket Chat | `Practical_03` | Java Servlets 4.0, Tomcat, Sockets, HTML/CSS, Maven | Completed | Verified Webapp & Sockets | Run on Tomcat / `ChatServer.java` & `ChatClient.java` |
-| **Practical 04** | JSP Programming, Arithmetic, Forward, Implicit Objects & JDBC Login | `Practical_04` | JSP 2.3, JDBC, MySQL, Tomcat, HTML/CSS, Maven | Completed | Verified JSP Pages & Schema | Run on Tomcat (`index.html`) |
-| **Practical 05** | Hibernate ORM CRUD Operations | `Practical_05` | Hibernate 5.6, JPA, MySQL, Maven | Completed | Verified Entity & Dialect | `n.a.w.App.java` (Run As Java Application) |
-| **Practical 06** | Spring Boot REST CRUD Operations | `Practical_06` | Spring Boot 3.2.5, Spring Data JPA, REST, MySQL | Completed | Verified Spring Endpoints | `SpringCrudApplication.java` (Port 8082) |
-| **Practical 07** | Spring Boot Web Application with Thymeleaf | `Practical_07` | Spring Boot 3.2.5, Spring MVC, Thymeleaf, JPA, MySQL | Completed | Verified Thymeleaf UI & Controller | `SpringBootWebAppApplication.java` (Port 8083) |
+| **Practical 01** | JDBC Connection, Insertion & Retrieval | `Practical_01` | Java 17, JDBC, MySQL, Maven | Completed | Verified Code & Schema | `.\run` or `mvn` |
+| **Practical 02** | PreparedStatement & ResultSet Interfaces | `Practical_02` | Java 17, JDBC, MySQL, Maven | Completed | Verified Code & Schema | `.\run` or `mvn` |
+| **Practical 03** | Servlets, Request Details, Auth, Sessions, Cookies & Chat | `Practical_03` | Java Servlets 4.0, Tomcat, Sockets, HTML/CSS | Completed | Verified Webapp & Sockets | `.\run` (Web) or `.\run chat-server` |
+| **Practical 04** | JSP Programming, Arithmetic, Forward, Implicit & Login | `Practical_04` | JSP 2.3, JDBC, MySQL, Tomcat, HTML/CSS | Completed | Verified JSP Pages & Schema | `.\run` or `mvn` |
+| **Practical 05** | Hibernate ORM CRUD Operations | `Practical_05` | Hibernate 5.6, JPA, MySQL, Maven | Completed | Verified Entity & Dialect | `.\run` or `mvn` |
+| **Practical 06** | Spring Boot REST CRUD Operations | `Practical_06` | Spring Boot 3.2.5, Spring Data JPA, REST, MySQL | Completed | Verified Spring Endpoints | `.\run` or `mvn` (Port 8082) |
+| **Practical 07** | Spring Boot Web Application with Thymeleaf | `Practical_07` | Spring Boot 3.2.5, Spring MVC, Thymeleaf, JPA, MySQL | Completed | Verified Thymeleaf UI | `.\run` or `mvn` (Port 8083) |
 
 ---
 
