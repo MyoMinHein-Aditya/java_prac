@@ -4,5 +4,52 @@
   "maven.view": "hierarchical",
   "java.compile.nullAnalysis.mode": "automatic",
   "java.project.explorer.showNonJavaResources": true,
-  "boot-java.dashboard.open-on-startup": true
+  "boot-java.dashboard.open-on-startup": true,
+  "sqltools.connections": [
+    {
+      "name": "MySQL - Practical 01 & 02 (mydb)",
+      "dialect": "MySQL",
+      "server": "localhost",
+      "port": 3306,
+      "username": "root",
+      "database": "mydb",
+      "askForPassword": true
+    },
+    {
+      "name": "MySQL - Practical 04 (demo_db)",
+      "dialect": "MySQL",
+      "server": "localhost",
+      "port": 3306,
+      "username": "root",
+      "database": "demo_db",
+      "askForPassword": true
+    },
+    {
+      "name": "MySQL - Practical 05 (TestHibernate)",
+      "dialect": "MySQL",
+      "server": "localhost",
+      "port": 3306,
+      "username": "root",
+      "database": "TestHibernate",
+      "askForPassword": true
+    },
+    {
+      "name": "MySQL - Practical 06 (springcrud)",
+      "dialect": "MySQL",
+      "server": "localhost",
+      "port": 3306,
+      "username": "root",
+      "database": "springcrud",
+      "askForPassword": true
+    },
+    {
+      "name": "MySQL - Practical 07 (springweb)",
+      "dialect": "MySQL",
+      "server": "localhost",
+      "port": 3306,
+      "username": "root",
+      "database": "springweb",
+      "askForPassword": true
+    }
+  ]
 }

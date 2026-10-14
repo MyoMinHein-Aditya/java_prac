@@ -1,9 +1,10 @@
 # VS Code Guide for Enterprise Java Practicals
 
-This guide explains how to open, build, run, and debug all 7 practicals using Visual Studio Code with the installed extensions:
+This guide explains how to open, build, run, debug, and connect MySQL for all 7 practicals using Visual Studio Code with the installed extensions:
 1. Extension Pack for Java
 2. Spring Boot Extension Pack
 3. Community Server Connectors
+4. MySQL Database Extension (Database Client / SQLTools)
 
 ---
 
@@ -14,7 +15,7 @@ You can open the workspace in either of these two ways:
 ### Option A: Open Folder
 1. Launch VS Code.
 2. Select **File -> Open Folder...**.
-3. Choose the directory: `d:\Workspace\Uni\EPJ\Prac`.
+3. Choose the directory: `d:\Workspace\Uni\EPJ\Prac` (or `d:\Workspace\Uni\EPJ\Prac\Practicals`).
 4. VS Code will detect the root `pom.xml` and automatically load all 7 practical modules into the **Java Projects** view.
 
 ### Option B: Open Workspace File (Multi-Root View)
@@ -24,88 +25,88 @@ You can open the workspace in either of these two ways:
 
 ---
 
-## 2. Using Extension Pack for Java
+## 2. Connecting MySQL in VS Code
 
-The Extension Pack for Java provides full language support, auto-completion, Maven integration, and debugging.
+Your local MySQL service (`MySQL80`) is already running on port `3306`. You can manage it directly inside VS Code without needing external software.
 
-### Running Java Applications (Practicals 01, 02, 05, and Chat in Practical 03)
-There are two easy ways to run any practical:
+### Method 1: Using "Database Client" Extension (Recommended GUI)
+1. In VS Code, go to the **Extensions** view (`Ctrl + Shift + X`).
+2. Search for and install: **Database Client** (by *cweijan*).
+3. Click the database icon that appears in the VS Code Activity Bar on the left.
+4. Click **Create Connection** -> select **MySQL**.
+5. Fill in the connection settings:
+   - **Host:** `localhost` (or `127.0.0.1`)
+   - **Port:** `3306`
+   - **Username:** `root`
+   - **Password:** *(Your local MySQL root password)*
+6. Click **Connect**.
+7. Once connected, open `setup_all_databases.sql`, right-click in the editor, and click **Run SQL**. This creates and populates all tables for Practicals 01, 02, 04, 05, 06, and 07 in one click.
 
-#### Method 1: Using the Run & Debug Dropdown (Recommended)
-1. Press `Ctrl + Shift + D` or click the **Run and Debug** icon in the Activity Bar.
-2. Open the configuration dropdown at the top:
+### Method 2: Using "SQLTools" Extension
+1. In VS Code Extensions (`Ctrl + Shift + X`), install **SQLTools** and **SQLTools MySQL/MariaDB Driver**.
+2. Connections for all practical databases (`mydb`, `demo_db`, `TestHibernate`, `springcrud`, `springweb`) are already pre-configured in `.vscode/settings.json`.
+3. Click the SQLTools database icon in the Activity Bar, click on any practical database, and enter your password to connect.
+
+---
+
+## 3. Running Java Applications (Practicals 01, 02, 05, and Chat in Practical 03)
+*Powered by **Extension Pack for Java***
+
+1. Press `Ctrl + Shift + D` (or click the **Run and Debug** icon in the Activity Bar).
+2. Open the dropdown at the top:
    - `Practical 01: Run JDBC App`
    - `Practical 02: Run PreparedStatement App`
    - `Practical 03: Run Chat Server (Port 5000)`
    - `Practical 03: Run Chat Client`
    - `Practical 05: Run Hibernate CRUD App`
-   - `Practical 06: Run Spring Boot REST App (Port 8082)`
-   - `Practical 07: Run Spring Boot Web App (Port 8083)`
-3. Select the desired practical and press `F5` (Debug) or `Ctrl + F5` (Run Without Debugging).
-
-#### Method 2: Using In-Editor CodeLens
-1. Open any Java file with a `main` method (e.g. `App.java`).
-2. Click the **Run** or **Debug** text button that appears directly above `public static void main(String[] args)`.
+3. Press **`F5`** (Debug) or **`Ctrl + F5`** (Run Without Debugging).
+4. *Alternative:* Open any `App.java` file and click the small **`Run`** button directly above `public static void main(...)`.
 
 ---
 
-## 3. Using Spring Boot Extension Pack (Practicals 06 and 07)
+## 4. Running Spring Boot Applications (Practicals 06 and 07)
+*Powered by **Spring Boot Extension Pack***
 
-The Spring Boot Extension Pack provides dedicated tools for Spring applications.
-
-### Using the Spring Boot Dashboard:
-1. Look for the Spring leaf icon in the VS Code Activity Bar (or the **Spring Boot Dashboard** in the Explorer view).
-2. You will see both Spring Boot applications listed:
-   - `SpringCRUD` (Practical 06)
-   - `SpringBootWebApp` (Practical 07)
-3. Hover over either project and click the **Play** button to start, or click the **Stop** button to shut it down.
-4. Access endpoints in your browser:
-   - Practical 06: `http://localhost:8082/` (Built-in REST test dashboard)
-   - Practical 07: `http://localhost:8083/` (Thymeleaf employee records page)
+1. Click the **Spring Boot Dashboard** icon (Spring leaf) in the Activity Bar.
+2. You will see both apps listed:
+   - `SpringCRUD` (Practical 06 - REST API on port 8082)
+   - `SpringBootWebApp` (Practical 07 - Web App on port 8083)
+3. Click the green **Play** button next to either project to launch it.
+4. Open your browser:
+   - Practical 06: `http://localhost:8082/` (Interactive REST Client Dashboard)
+   - Practical 07: `http://localhost:8083/` (Thymeleaf Employee Records UI)
 
 ---
 
-## 4. Using Community Server Connectors (Practicals 03 and 04)
+## 5. Running Servlets and JSP Applications (Practicals 03 and 04)
+*Powered by **Community Server Connectors***
 
-Community Server Connectors manages application servers like Apache Tomcat directly inside VS Code.
-
-### Step 1: Add Apache Tomcat to VS Code
-1. In the VS Code Explorer sidebar, find the **SERVERS** section.
-2. Click the `+` icon or right-click in the section and select **Create New Server**.
-3. Choose **Apache Tomcat** from the list.
-4. Browse and select your local Apache Tomcat installation folder (e.g., Tomcat 9 or Tomcat 10).
-5. Click **Finish**. Tomcat will now appear under the **SERVERS** tree.
-
-### Step 2: Build the WAR Files
-1. Press `Ctrl + Shift + B` (or go to **Terminal -> Run Task...**).
-2. Select:
-   - `Package Practical 03 WAR (for Tomcat)` to build `Practical_03.war`.
-   - `Package Practical 04 WAR (for Tomcat)` to build `Practical_04.war`.
-3. The packaged `.war` files are generated in `Practicals/Practical_03/target/` and `Practicals/Practical_04/target/`.
-
-### Step 3: Deploy to Tomcat in VS Code
-1. In the **SERVERS** view, right-click your configured **Apache Tomcat** server.
-2. Select **Add Deployment...**.
-3. Choose **File** and browse to:
-   - `d:\Workspace\Uni\EPJ\Prac\Practicals\Practical_03\target\Practical_03.war` (for Practical 03)
-   - `d:\Workspace\Uni\EPJ\Prac\Practicals\Practical_04\target\Practical_04.war` (for Practical 04)
-4. Right-click the server and choose **Start Server**.
-5. Once started, open your web browser:
+1. **Package the WAR files:**
+   - Press `Ctrl + Shift + B` (or **Terminal -> Run Task...**).
+   - Select `Package Practical 03 WAR (for Tomcat)` or `Package Practical 04 WAR (for Tomcat)`.
+2. **Add Tomcat in VS Code:**
+   - In the VS Code Explorer sidebar, find the **SERVERS** section.
+   - Click `+` (**Create New Server**) -> select **Apache Tomcat** -> point to your local Tomcat directory.
+3. **Deploy:**
+   - Right-click your Tomcat server under **SERVERS** -> select **Add Deployment...**.
+   - Browse to `Practicals/Practical_03/target/Practical_03.war` or `Practicals/Practical_04/target/Practical_04.war`.
+   - Right-click server -> **Start Server**.
+4. **Access in browser:**
    - Practical 03 Login: `http://localhost:8080/Practical_03/index.html`
-   - Practical 03 Details: `http://localhost:8080/Practical_03/request-details`
+   - Practical 03 Request Details: `http://localhost:8080/Practical_03/request-details`
    - Practical 04 Arithmetic: `http://localhost:8080/Practical_04/practical_4_1_arithmetic.jsp`
    - Practical 04 Login: `http://localhost:8080/Practical_04/index.html`
 
 ---
 
-## 5. Summary of Pre-configured VS Code Tasks
+## 6. Pre-configured VS Code Tasks
 
-Access these via **Terminal -> Run Task...** or `Ctrl + Shift + P` -> `Tasks: Run Task`:
+Access via **Terminal -> Run Task...** (`Ctrl + Shift + P` -> `Tasks: Run Task`):
 
 | Task Name | Description |
 | :--- | :--- |
-| `Build All Practicals (mvn clean compile)` | Compiles all 7 projects using Maven |
-| `Package All WARs (mvn clean package)` | Generates WAR and JAR packages for all projects |
+| `Build All Practicals (mvn clean compile)` | Compiles all 7 projects with Maven |
+| `Package All WARs (mvn clean package)` | Packages WAR and JAR binaries for all practicals |
 | `Package Practical 03 WAR (for Tomcat)` | Builds `Practical_03.war` |
 | `Package Practical 04 WAR (for Tomcat)` | Builds `Practical_04.war` |
 | `Run Spring Boot Practical 06` | Starts Practical 06 on port 8082 via Maven |
