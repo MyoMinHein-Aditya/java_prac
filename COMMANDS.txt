@@ -1,0 +1,87 @@
+================================================================================
+                    JAVA PRACTICALS EXECUTION COMMANDS
+================================================================================
+Student Name : Kalpataru Dash
+Subject      : Enterprise Programming Using Java (303105310)
+MySQL Config : Port 3306 | User: root | Password: Dash@1908
+================================================================================
+
+--------------------------------------------------------------------------------
+PRACTICAL 01: JDBC Insertion and Retrieval
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_01"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" compile exec:java
+
+Output: Connects to MySQL mydb, inserts user record, prints records to console.
+
+--------------------------------------------------------------------------------
+PRACTICAL 02: PreparedStatement & ResultSet
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_02"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" compile exec:java
+
+Output: Uses parameterized SQL with PreparedStatement, queries via ResultSet.
+
+--------------------------------------------------------------------------------
+PRACTICAL 03: Socket Chat & Servlets
+--------------------------------------------------------------------------------
+Part A - Chat Server (Port 5000):
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_03"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" test-compile exec:java
+
+Part B - Chat Client (Open in a New Terminal Window):
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_03"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" test-compile "exec:java" "-Dexec.mainClass=com.chat.ChatClient"
+
+Part C - Servlets (Web Browser via Port 8085):
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_03"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" jetty:run
+
+Browser URLs to Open:
+- Login Page:     http://localhost:8085/Practical_03/index.html  (Login: admin / 1234)
+- Register Form:  http://localhost:8085/Practical_03/Register.html
+- Hello Servlet:  http://localhost:8085/Practical_03/hello
+- Session Demo:   http://localhost:8085/Practical_03/session
+- Cookies Demo:   http://localhost:8085/Practical_03/cookies
+- Request Info:   http://localhost:8085/Practical_03/request-details
+(Press Ctrl + C in terminal to stop server)
+
+--------------------------------------------------------------------------------
+PRACTICAL 04: JSP Programming & JDBC Integration (Port 8086)
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_04"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" jetty:run
+
+Browser URLs to Open:
+- Login Page:       http://localhost:8086/Practical_04/index.html  (Login: admin / 1234)
+- Add User (JDBC):  http://localhost:8086/Practical_04/insert_user.jsp
+- Arithmetic Demo:  http://localhost:8086/Practical_04/practical_4_1_arithmetic.jsp
+- Implicit Objects: http://localhost:8086/Practical_04/implicit_objects.jsp
+(Press Ctrl + C in terminal to stop server)
+
+--------------------------------------------------------------------------------
+PRACTICAL 05: Hibernate ORM CRUD Operations
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_05"
+& "D:\Coading World\Nexux\backend\apache-maven-3.9.6\bin\mvn.cmd" compile exec:java
+
+Output: Connects to MySQL TestHibernate, inserts Kalpataru Dash, queries via HQL.
+
+--------------------------------------------------------------------------------
+PRACTICAL 06: Spring Boot REST CRUD (Port 8082)
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_06"
+java -jar "target\SpringCRUD-0.0.1-SNAPSHOT.jar"
+
+Browser URL: http://localhost:8082/
+(Press Ctrl + C in terminal to stop server)
+
+--------------------------------------------------------------------------------
+PRACTICAL 07: Spring Boot Thymeleaf Web App (Port 8083)
+--------------------------------------------------------------------------------
+cd "D:\Coading World\javaptr\java_prac\Practicals\Practical_07"
+java -jar "target\SpringBootWebApp-0.0.1-SNAPSHOT.jar"
+
+Browser URL: http://localhost:8083/
+(Press Ctrl + C in terminal to stop server)
+================================================================================

@@ -6,7 +6,7 @@
 </head>
 <body>
     <jsp:forward page="forward_target.jsp">
-        <jsp:param name="studentName" value="Myo Min Hein" />
+        <jsp:param name="studentName" value="Kalpataru Dash" />
         <jsp:param name="subject" value="Enterprise Programming Using Java" />
     </jsp:forward>
 </body>

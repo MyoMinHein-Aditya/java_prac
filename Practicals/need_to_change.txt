@@ -1,6 +1,6 @@
 ================================================================================
 MASTER CONFIGURATION GUIDE: VALUES YOU NEED TO CHANGE FOR YOUR SYSTEM
-Student: Myo Min Hein @ Aditya
+Student: Kalpataru Dash
 Subject: Enterprise Programming Using Java (303105310)
 ================================================================================
 

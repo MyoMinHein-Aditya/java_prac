@@ -25,14 +25,13 @@ public class MainServlet extends HttpServlet {
 
         out.println("<!DOCTYPE html><html><head><title>Dashboard</title>");
         out.println("<style>");
-        out.println("body{font-family:Arial;background:#f4f4f4;text-align:center;}");
-        out.println("div{width:400px;margin:60px auto;background:white;padding:20px;"
-                + "border-radius:8px;box-shadow:0 0 10px gray;}");
+        out.println("body{font-family:Arial,sans-serif;background-color:#f4f4f4;text-align:center;margin:40px;}");
+        out.println(".box{width:350px;margin:40px auto;background-color:#ffffff;padding:20px;border:1px solid #cccccc;}");
         out.println("table{width:100%;border-collapse:collapse;margin-top:15px;}");
-        out.println("table,th,td{border:1px solid black;padding:8px;}");
-        out.println("a{display:inline-block;margin-top:20px;padding:10px 20px;"
-                + "background:blue;color:white;text-decoration:none;border-radius:5px;}");
-        out.println("</style></head><body><div>");
+        out.println("table,th,td{border:1px solid #999999;padding:6px;text-align:left;}");
+        out.println("th{background-color:#eeeeee;}");
+        out.println("a{display:inline-block;margin-top:15px;padding:6px 12px;background-color:#0066cc;color:#ffffff;text-decoration:none;}");
+        out.println("</style></head><body><div class='box'>");
 
         if ("admin".equals(user) && "1234".equals(pass)) {
             HttpSession session = request.getSession();

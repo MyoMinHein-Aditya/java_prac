@@ -21,17 +21,15 @@ public class RequestDetailsServlet extends HttpServlet {
 
         out.println("<!DOCTYPE html><html><head><title>HTTP Request Details</title>");
         out.println("<style>");
-        out.println("body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 30px; }");
-        out.println(".card { background: white; max-width: 750px; margin: auto; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }");
-        out.println("h2 { color: #007bff; text-align: center; }");
-        out.println("table { width: 100%; border-collapse: collapse; margin-top: 20px; }");
-        out.println("th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }");
-        out.println("th { background-color: #007bff; color: white; }");
-        out.println("tr:nth-child(even) { background-color: #f2f2f2; }");
-        out.println(".back-btn { display: inline-block; margin-top: 20px; padding: 8px 16px; background: #6c757d; color: white; text-decoration: none; border-radius: 4px; }");
+        out.println("body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 40px; }");
+        out.println(".box { background-color: #ffffff; max-width: 700px; margin: auto; padding: 20px; border: 1px solid #cccccc; }");
+        out.println("h2 { color: #333333; text-align: center; margin-top: 0; }");
+        out.println("table { width: 100%; border-collapse: collapse; margin-top: 15px; }");
+        out.println("th, td { border: 1px solid #999999; padding: 8px; text-align: left; }");
+        out.println("th { background-color: #eeeeee; color: #000000; }");
+        out.println("a { display: inline-block; margin-top: 15px; padding: 6px 12px; background-color: #0066cc; color: #ffffff; text-decoration: none; }");
         out.println("</style></head><body>");
-
-        out.println("<div class='card'>");
+        out.println("<div class='box'>");
         out.println("<h2>HTTP Request Details</h2>");
         out.println("<table>");
         out.println("<tr><th>Request Property</th><th>Value</th></tr>");

@@ -6,98 +6,100 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 40px;
-            background-color: #fdfdfd;
+        }
+        .box {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            width: 500px;
         }
         h1 {
-            color: #222;
+            color: #333333;
+            font-size: 22px;
+            margin-top: 0;
         }
         h2 {
-            color: #444;
-            margin-top: 25px;
+            color: #555555;
+            font-size: 16px;
+            margin-top: 20px;
         }
-        form {
-            background-color: #f7f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            max-width: 400px;
-            border: 1px solid #e0e0e0;
+        .form-group {
+            margin-bottom: 10px;
         }
         label {
-            font-weight: bold;
             display: inline-block;
             width: 60px;
-        }
-        input[type="text"] {
-            padding: 6px 10px;
-            width: 260px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
             font-weight: bold;
         }
-        button[type="submit"]:hover {
-            background-color: #0056b3;
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #999999;
+            width: 200px;
+        }
+        input[type="submit"] {
+            padding: 6px 12px;
+            background-color: #0066cc;
+            color: #ffffff;
+            border: 1px solid #0055aa;
+            cursor: pointer;
         }
         table {
             border-collapse: collapse;
-            width: 500px;
+            width: 100%;
             margin-top: 15px;
         }
         th, td {
-            border: 1px solid #666;
-            padding: 8px 12px;
+            border: 1px solid #999999;
+            padding: 6px 10px;
             text-align: left;
         }
         th {
-            background-color: #eee;
+            background-color: #eeeeee;
         }
         .del-link {
-            color: #dc3545;
+            color: #cc0000;
             text-decoration: none;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Employee Management System</h1>
+    <div class="box">
+        <h1>Employee Management System</h1>
+        <p>Student: <b>Kalpataru Dash</b> | Port: <b>8083</b></p>
+        <hr>
 
-    <h2>Add Employee</h2>
-    <form action="/save" method="post">
-        <label>Name:</label>
-        <input type="text" name="name" placeholder="e.g. Anitha Nadar" required>
-        <br><br>
-        <label>City:</label>
-        <input type="text" name="city" placeholder="e.g. Vadodara" required>
-        <br><br>
-        <button type="submit">Save Employee</button>
-    </form>
+        <h2>Add Employee</h2>
+        <form action="/save" method="post">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>City:</label>
+                <input type="text" name="city" required>
+            </div>
+            <input type="submit" value="Save Employee">
+        </form>
 
-    <hr style="margin-top: 30px;">
-
-    <h2>Employee Records</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Action</th>
-        </tr>
-        <tr th:each="employee : ${employees}">
-            <td th:text="${employee.id}">1</td>
-            <td th:text="${employee.name}">Anitha Nadar</td>
-            <td th:text="${employee.city}">Vadodara</td>
-            <td>
-                <a class="del-link" th:href="@{'/delete/' + ${employee.id}}">Delete</a>
-            </td>
-        </tr>
-    </table>
+        <h2>Employee Records</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}">1</td>
+                <td th:text="${employee.name}">Anitha Nadar</td>
+                <td th:text="${employee.city}">Vadodara</td>
+                <td>
+                    <a class="del-link" th:href="@{'/delete/' + ${employee.id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

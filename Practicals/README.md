@@ -1,7 +1,7 @@
 # Enterprise Programming Using Java (303105310)
 ## Complete Practical Laboratory Manual Implementations
 
-- **Student Name:** Myo Min Hein @ Aditya
+- **Student Name:** Kalpataru Dash
 - **Degree:** B.Tech. Computer Science & Engineering
 - **Year / Semester:** Year 3 / Semester 5
 - **University:** Parul University, Faculty of Engineering & Technology

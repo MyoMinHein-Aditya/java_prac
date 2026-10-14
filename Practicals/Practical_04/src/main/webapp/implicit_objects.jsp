@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <title>JSP Implicit Objects Demo</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
-        .box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 0 10px #ddd; max-width: 700px; margin: auto; }
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; }
+        .box { background-color: #ffffff; padding: 20px; border: 1px solid #cccccc; max-width: 700px; margin: auto; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-        th { background: #007bff; color: white; }
+        th, td { border: 1px solid #999999; padding: 6px 10px; text-align: left; }
+        th { background-color: #eeeeee; color: #000000; }
+        a { color: #0066cc; text-decoration: none; }
     </style>
 </head>
 <body>

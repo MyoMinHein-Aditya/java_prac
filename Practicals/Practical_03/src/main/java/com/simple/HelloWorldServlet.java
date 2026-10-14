@@ -19,11 +19,11 @@ public class HelloWorldServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         out.println("<!DOCTYPE html><html><head><title>Hello World Servlet</title></head>");
-        out.println("<body style='font-family: Arial; text-align: center; margin-top: 50px;'>");
-        out.println("<h1 style='color: #007bff;'>Hello World from Servlet!</h1>");
-        out.println("<p>Welcome, Myo Min Hein!</p>");
-        out.println("<p>Servlet is running successfully on Apache Tomcat.</p>");
-        out.println("<br><a href='index.html'>Back to Home</a>");
+        out.println("<body style='font-family: Arial, sans-serif; text-align: center; margin-top: 50px;'>");
+        out.println("<h1 style='color: #0066cc;'>Hello World from Servlet!</h1>");
+        out.println("<p>Welcome, Kalpataru Dash!</p>");
+        out.println("<p>Servlet is running successfully.</p>");
+        out.println("<br><a href='index.html' style='color:#0066cc; text-decoration:none;'>Back to Home</a>");
         out.println("</body></html>");
         out.close();
     }

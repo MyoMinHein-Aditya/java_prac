@@ -34,9 +34,9 @@ public class SessionTrackingServlet extends HttpServlet {
         session.setAttribute("accessCount", accessCount);
 
         out.println("<!DOCTYPE html><html><head><title>Session Tracking</title>");
-        out.println("<style>body{font-family:Arial;background:#f0f2f5;margin:40px;}.box{background:white;padding:25px;max-width:550px;margin:auto;border-radius:8px;box-shadow:0 0 10px #bbb;}</style>");
+        out.println("<style>body{font-family:Arial,sans-serif;background-color:#f4f4f4;margin:40px;}.box{background-color:#ffffff;padding:20px;max-width:500px;margin:auto;border:1px solid #cccccc;}a{color:#0066cc;text-decoration:none;}</style>");
         out.println("</head><body><div class='box'>");
-        out.println("<h2 style='color:#007bff;'>" + heading + "</h2>");
+        out.println("<h2 style='color:#333333;margin-top:0;'>" + heading + "</h2>");
         out.println("<table border='1' cellpadding='8' style='width:100%; border-collapse:collapse;'>");
         out.println("<tr><th>Information</th><th>Value</th></tr>");
         out.println("<tr><td>Session ID</td><td>" + session.getId() + "</td></tr>");

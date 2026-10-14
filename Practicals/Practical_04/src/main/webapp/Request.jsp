@@ -8,29 +8,28 @@
     <style> 
         body {
             font-family: Arial, sans-serif; 
-            background: #f2f2f2;
+            background-color: #f4f4f4;
+            margin: 40px;
         }
         .container { 
-            width: 500px; 
-            margin: 80px auto; 
-            background: white; 
-            padding: 25px; 
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray; 
+            width: 350px; 
+            margin: 40px auto; 
+            background-color: #ffffff; 
+            padding: 20px; 
+            border: 1px solid #cccccc;
             text-align: center;
         }
         .success { 
-            color: green;
+            color: #28a745;
         }
-        .error {
-            color: red;
+        .error { 
+            color: #dc3545;
         }
         a {
             text-decoration: none; 
-            color: white; 
-            background: #1976d2; 
-            padding: 10px 20px; 
-            border-radius: 5px;
+            color: #ffffff; 
+            background-color: #0066cc; 
+            padding: 8px 16px; 
             display: inline-block;
             margin-top: 15px;
         }
@@ -41,33 +40,24 @@
 <%
     String user = request.getParameter("user"); 
     String pass = request.getParameter("pass");
+
+    // 1. Load Driver and Connect to Database
+    Class.forName("com.mysql.cj.jdbc.Driver"); 
     String url = "jdbc:mysql://localhost:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"; 
-    String dbUser = "root";
-    String dbPass = "root"; 
+    Connection con = DriverManager.getConnection(url, "root", "Dash@1908");
 
-    Connection con = null; 
-    PreparedStatement ps = null; 
-    ResultSet rs = null; 
-    boolean login = false; 
+    // 2. Check credentials
+    String sql = "SELECT * FROM users WHERE username=? AND password=?"; 
+    PreparedStatement ps = con.prepareStatement(sql);
+    ps.setString(1, user); 
+    ps.setString(2, pass); 
+    ResultSet rs = ps.executeQuery(); 
+    boolean login = rs.next();
 
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver"); 
-        con = DriverManager.getConnection(url, dbUser, dbPass);
-        String sql = "SELECT * FROM users WHERE username=? AND password=?"; 
-        ps = con.prepareStatement(sql);
-        ps.setString(1, user); 
-        ps.setString(2, pass); 
-        rs = ps.executeQuery(); 
-        if (rs.next()) { 
-            login = true;
-        }
-    } catch (Exception e) { 
-        out.println("<h3 class='error'>" + e.getMessage() + "</h3>");
-    } finally {
-        if (rs != null) try { rs.close(); } catch (SQLException e) {}
-        if (ps != null) try { ps.close(); } catch (SQLException e) {} 
-        if (con != null) try { con.close(); } catch (SQLException e) {}
-    }
+    // 3. Close connection
+    rs.close();
+    ps.close();
+    con.close();
 
     if (login) {
         Integer count = (Integer) session.getAttribute("count"); 

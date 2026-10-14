@@ -2,83 +2,48 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class App {
 
-    public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
+    public static void main(String[] args) throws Exception {
+        // Step 1: Load MySQL JDBC Driver
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
-            conn = DriverManager.getConnection(url, username, password);
-            System.out.println("Success: Connected to the MySQL database!");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: Driver class not found. Verify your JDBC dependency.");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.out.println("Error: Connection failed. Verify your password or if MySQL Server is running.");
-            e.printStackTrace();
-        }
-        return conn;
-    }
+        // Step 2: Create Database Connection
+        String url = "jdbc:mysql://localhost:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        String username = "root";
+        String password = "Dash@1908";
 
-    public static void insertData(Connection conn, String name, String email) {
+        Connection conn = DriverManager.getConnection(url, username, password);
+        System.out.println("Database Connected Successfully!");
+
+        // Step 3: Insert Data
         String insertSQL = "INSERT INTO users (name, email) VALUES (?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
-            pstmt.setString(1, name);
-            pstmt.setString(2, email);
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Data successfully inserted for: " + name);
-            }
-        } catch (SQLException e) {
-            System.out.println("Error while running INSERT operation.");
-            e.printStackTrace();
-        }
-    }
+        PreparedStatement pstmt = conn.prepareStatement(insertSQL);
+        pstmt.setString(1, "Kalpataru Dash");
+        pstmt.setString(2, "kalpataru@sample.com");
+        pstmt.executeUpdate();
+        System.out.println("Record inserted successfully.");
 
-    public static void retrieveData(Connection conn) {
+        // Step 4: Retrieve and Display Data
         String selectSQL = "SELECT id, name, email FROM users";
-        System.out.println("\n--- Fetching Records From Database ---");
-        try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(selectSQL)) {
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                System.out.println("ID: " + id + " | Name: " + name + " | Email: " + email);
-            }
-        } catch (SQLException e) {
-            System.out.println("Error while running SELECT operation.");
-            e.printStackTrace();
-        }
-    }
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(selectSQL);
 
-    public static void main(String[] args) {
-        Connection connection = getConnection();
-        if (connection != null) {
-            try {
-                insertData(connection, "Mumu", "mumu@sample.com");
-                insertData(connection, "Rahul Kumar", "rahul@sample.com");
-                insertData(connection, "Kumar", "rahul6@sample.com");
-                insertData(connection, "Abhishek", "abhi@sample.com");
-                insertData(connection, "Hetvi", "hetvi@sample.com");
-                insertData(connection, "Anitha", "anitha@sample.com");
-
-                retrieveData(connection);
-            } finally {
-                try {
-                    connection.close();
-                    System.out.println("\nDatabase connection closed safely.");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        System.out.println("\n--- User Records ---");
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            System.out.println("ID: " + id + " | Name: " + name + " | Email: " + email);
         }
+
+        // Step 5: Close Connections
+        rs.close();
+        stmt.close();
+        pstmt.close();
+        conn.close();
+        System.out.println("\nConnection closed successfully.");
     }
 }

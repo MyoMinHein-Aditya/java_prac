@@ -13,7 +13,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    @GetMapping("/")
+    @GetMapping({"", "/"})
     public String home() {
         return "Employee CRUD Application Running Successfully";
     }
