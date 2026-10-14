@@ -2,6 +2,24 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Docker: Start MySQL Database",
+      "type": "shell",
+      "command": "docker compose up -d",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Stop MySQL Database",
+      "type": "shell",
+      "command": "docker compose down",
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker: Reset & Re-initialize MySQL",
+      "type": "shell",
+      "command": "docker compose down -v && docker compose up -d",
+      "problemMatcher": []
+    },
+    {
       "label": "Build All Practicals (mvn clean compile)",
       "type": "shell",
       "command": "mvn clean compile",
