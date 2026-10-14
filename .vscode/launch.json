@@ -1,0 +1,61 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Practical 01: Run JDBC App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "Practical_01",
+      "cwd": "${workspaceFolder}/Practicals/Practical_01"
+    },
+    {
+      "type": "java",
+      "name": "Practical 02: Run PreparedStatement App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "Practical_02",
+      "cwd": "${workspaceFolder}/Practicals/Practical_02"
+    },
+    {
+      "type": "java",
+      "name": "Practical 03: Run Chat Server (Port 5000)",
+      "request": "launch",
+      "mainClass": "com.chat.ChatServer",
+      "projectName": "Practical_03",
+      "cwd": "${workspaceFolder}/Practicals/Practical_03"
+    },
+    {
+      "type": "java",
+      "name": "Practical 03: Run Chat Client",
+      "request": "launch",
+      "mainClass": "com.chat.ChatClient",
+      "projectName": "Practical_03",
+      "cwd": "${workspaceFolder}/Practicals/Practical_03"
+    },
+    {
+      "type": "java",
+      "name": "Practical 05: Run Hibernate CRUD App",
+      "request": "launch",
+      "mainClass": "n.a.w.App",
+      "projectName": "CrudinHibernate",
+      "cwd": "${workspaceFolder}/Practicals/Practical_05"
+    },
+    {
+      "type": "java",
+      "name": "Practical 06: Run Spring Boot REST App (Port 8082)",
+      "request": "launch",
+      "mainClass": "com.springcrud.SpringCrudApplication",
+      "projectName": "SpringCRUD",
+      "cwd": "${workspaceFolder}/Practicals/Practical_06"
+    },
+    {
+      "type": "java",
+      "name": "Practical 07: Run Spring Boot Web App (Port 8083)",
+      "request": "launch",
+      "mainClass": "com.springweb.SpringBootWebAppApplication",
+      "projectName": "SpringBootWebApp",
+      "cwd": "${workspaceFolder}/Practicals/Practical_07"
+    }
+  ]
+}

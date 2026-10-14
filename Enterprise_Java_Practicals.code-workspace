@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "name": "All Practicals (Root)",
+      "path": "."
+    },
+    {
+      "name": "Practical 01 - JDBC",
+      "path": "Practicals/Practical_01"
+    },
+    {
+      "name": "Practical 02 - PreparedStatement",
+      "path": "Practicals/Practical_02"
+    },
+    {
+      "name": "Practical 03 - Servlets & Sockets",
+      "path": "Practicals/Practical_03"
+    },
+    {
+      "name": "Practical 04 - JSP & JDBC",
+      "path": "Practicals/Practical_04"
+    },
+    {
+      "name": "Practical 05 - Hibernate CRUD",
+      "path": "Practicals/Practical_05"
+    },
+    {
+      "name": "Practical 06 - Spring Boot REST",
+      "path": "Practicals/Practical_06"
+    },
+    {
+      "name": "Practical 07 - Spring Boot Web",
+      "path": "Practicals/Practical_07"
+    }
+  ],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "maven.view": "hierarchical",
+    "boot-java.dashboard.open-on-startup": true
+  }
+}

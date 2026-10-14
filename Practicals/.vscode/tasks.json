@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build All Practicals (mvn clean compile)",
+      "type": "shell",
+      "command": "mvn clean compile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$maven"]
+    },
+    {
+      "label": "Package All WARs (mvn clean package)",
+      "type": "shell",
+      "command": "mvn clean package -DskipTests",
+      "group": "build",
+      "problemMatcher": ["$maven"]
+    },
+    {
+      "label": "Package Practical 03 WAR (for Tomcat)",
+      "type": "shell",
+      "command": "mvn clean package -DskipTests",
+      "options": {
+        "cwd": "${workspaceFolder}/Practical_03"
+      },
+      "problemMatcher": ["$maven"]
+    },
+    {
+      "label": "Package Practical 04 WAR (for Tomcat)",
+      "type": "shell",
+      "command": "mvn clean package -DskipTests",
+      "options": {
+        "cwd": "${workspaceFolder}/Practical_04"
+      },
+      "problemMatcher": ["$maven"]
+    },
+    {
+      "label": "Run Spring Boot Practical 06 (mvn spring-boot:run)",
+      "type": "shell",
+      "command": "mvn spring-boot:run",
+      "options": {
+        "cwd": "${workspaceFolder}/Practical_06"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Spring Boot Practical 07 (mvn spring-boot:run)",
+      "type": "shell",
+      "command": "mvn spring-boot:run",
+      "options": {
+        "cwd": "${workspaceFolder}/Practical_07"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

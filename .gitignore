@@ -1,8 +1,6 @@
-# Maven build outputs
 target/
 *.class
 
-# Eclipse
 .metadata/
 .project
 .classpath
@@ -17,15 +15,12 @@ local.properties
 .loadpath
 .recommenders
 
-# IntelliJ IDEA
 .idea/
 *.iml
 *.iws
 out/
 
-# VS Code
-.vscode/
+.vscode/*.log
 
-# OS generated files
 .DS_Store
 Thumbs.db

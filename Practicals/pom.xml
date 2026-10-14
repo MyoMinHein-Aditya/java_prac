@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.practicals</groupId>
+    <artifactId>practicals-modules</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Practicals - Modules Aggregator</name>
+
+    <modules>
+        <module>Practical_01</module>
+        <module>Practical_02</module>
+        <module>Practical_03</module>
+        <module>Practical_04</module>
+        <module>Practical_05</module>
+        <module>Practical_06</module>
+        <module>Practical_07</module>
+    </modules>
+</project>
