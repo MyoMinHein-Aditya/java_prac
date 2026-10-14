@@ -2,6 +2,14 @@ param(
     [string]$Id = ""
 )
 
+if (-not (Test-Path "$env:JAVA_HOME\bin\java.exe")) {
+    if (Test-Path "C:\Program Files\Java\jdk-26.0.2.1\bin\java.exe") {
+        $env:JAVA_HOME = "C:\Program Files\Java\jdk-26.0.2.1"
+    } elseif (Test-Path "C:\Program Files\Java\latest\bin\java.exe") {
+        $env:JAVA_HOME = "C:\Program Files\Java\latest"
+    }
+}
+
 if ($Id -eq "") {
     Write-Host "========================================================"
     Write-Host "Enterprise Java Practicals - Quick Runner"

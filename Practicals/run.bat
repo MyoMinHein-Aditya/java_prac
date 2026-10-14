@@ -1,4 +1,11 @@
 @echo off
+if not exist "%JAVA_HOME%\bin\java.exe" (
+    if exist "C:\Program Files\Java\jdk-26.0.2.1\bin\java.exe" (
+        set "JAVA_HOME=C:\Program Files\Java\jdk-26.0.2.1"
+    ) else if exist "C:\Program Files\Java\latest\bin\java.exe" (
+        set "JAVA_HOME=C:\Program Files\Java\latest"
+    )
+)
 if "%1"=="1" goto p1
 if "%1"=="01" goto p1
 if "%1"=="2" goto p2
